@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurante</title>
+</head>
+<body>
+    <h2> Plato del dia</h2>
+    <input type="text" id="dia" placeholder="Ingresa el numero del dia de la semana">
+    <button onclick="restaurante()">ver plato</button>
+    <h3 id="resultado"></h3>
+    <script>
+        function restaurante(){
+            const dia = document.getElementById("dia").value.trim();
+            let plato;
+            if (dia === "1") {
+                plato = "Lunes: Sopa de pollo";
+            } else if (dia === "2") {
+                plato = "Martes: Arroz con pollo";
+            } else if (dia === "3") {
+                plato = "Miércoles: Pasta boloñesa";
+            } else if (dia === "4") {
+                plato = "Jueves: Carne asada";
+            } else if (dia === "5") {
+                plato = "Viernes: Pescado frito";
+            } else if (dia === "6") {
+                plato = "Sábado: Hamburguesa";
+            } else if (dia === "7"){
+                plato = "Domingo: Plato especial de la casa";
+            } else {
+                plato = "DIA NO EXISTENTE"
+            }
+            document.getElementById("resultado").textContent = plato;
+        }
+    </script>
+</body>
+</html>

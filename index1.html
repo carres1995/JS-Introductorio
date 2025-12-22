@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScrProyect</title>
+</head>
+<body>
+    <input type="number" id="valor" placeholder="ingresa valor: ">
+    <input type="text" id="tarjeta" placeholder="ingresa valor: ">
+    <button onclick="bancaria()">Enviar</button>
+    <p id="resultado"></p>
+    <script>
+        function bancaria(){
+            const valor = Number(document.getElementById("valor").value);
+            const tarjeta =document.getElementById("tarjeta").value;
+            const resultado = document.getElementById("resultado")
+            if(isNaN(valor)) {
+                resultado.textContent=("Debe ingresar un valor numerico")
+            }
+            else if(valor < 0){
+                resultado.textContent=("no se acepatan valores negativos")
+            } else if (valor > 1000000 || tarjeta === "premium") {
+                    resultado.textContent=(`Cliente premium.valor: ${valor}`)
+            }else if (valor < 10000 ){
+                resultado.textContent=(`Saldo insuficiente. valor: ${valor}`)
+            } else if (valor <= 1000000 ) {
+                resultado.textContent=(`saldo moderado. valor: ${valor}`)
+            } 
+        }
+        
+    </script>
+</body>
+</html>
