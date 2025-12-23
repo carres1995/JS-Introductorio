@@ -55,6 +55,15 @@ console.log(color);*/
 }
 torneo(18,"COLOMBIA")*/
 
-function bancaria(){
-    
+
+/*function oferta(sesion=Boolean, reportado=Boolean, edad=Number, premium=Boolean){
+    const respuesta=sesion && !reportado && (edad > 21 || premium)
+    if (respuesta){
+        console.log("Obtuviste la oferta")
+    } else if(!respuesta){
+        return("No tienes oferta")
+    } else {
+        return("Datos erroneos")
+    }
 }
+console.log(oferta(true, false, 16, false))*/

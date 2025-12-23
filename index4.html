@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Acceso a Oferta</title>
+</head>
+<body>
+
+    <h2>Evaluar acceso a oferta</h2>
+
+    <label>
+        <input type="checkbox" id="login">
+        Ha iniciado sesión
+    </label>
+    <br><br>
+
+    <label>
+        <input type="checkbox" id="reportes">
+        Tiene reportes activos
+    </label>
+    <br><br>
+
+    <label>
+        Edad:
+        <input type="number" id="edad">
+    </label>
+    <br><br>
+
+    <label>
+        <input type="checkbox" id="premium">
+        Membresía premium
+    </label>
+    <br><br>
+
+    <button onclick="evaluarAcceso()">Evaluar</button>
+
+    <p id="resultado"></p>
+
+    <script>
+        function evaluarAcceso() {
+            const haIniciadoSesion = document.getElementById("login").checked;
+            const tieneReportesActivos = document.getElementById("reportes").checked;
+            const edad = Number(document.getElementById("edad").value);
+            const esPremium = document.getElementById("premium").checked;
+
+            const puedeAcceder =
+                haIniciadoSesion &&
+                !tieneReportesActivos &&
+                (edad >= 21 || esPremium);
+
+            const resultado = document.getElementById("resultado");
+
+            if (puedeAcceder) {
+                resultado.textContent = "Acceso permitido a la oferta";
+            } else {
+                resultado.textContent = "Acceso denegado";
+            }
+        }
+
+    </script>
+</body>
+</html>
+</body>
+</html>

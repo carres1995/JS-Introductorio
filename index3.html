@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Document</title>
+</head>
+<body>
+<!-- Una app de transporte da recomendaciones dependiendo de:
+• La hora del día (mañana, tarde, noche)
+• El clima (soleado, lluvioso, nublado)
+• Si el usuario tiene paraguas o no
+Dependiendo de esas variables, sugiere si caminar, tomar bus, o esperar.-->
+<h1>Empresa transporte</h1>
+<input type="text" id="clima" placeholder="como esta el dia?">
+<input type="text" id="horario" placeholder="horario dia">
+<label for="paraguas">llevas paraguas?</label>
+<select name="paraguas" id="paraguas">
+    <option value="si">si</option>
+    <option value="no">no</option>
+</select>
+<button onclick="transporte()">enviar</button>
+<p id="resultado"></p>
+    
+<script>
+    function transporte(){
+        const clima=document.getElementById("clima").value.trim()
+        const horario=document.getElementById("horario").value.trim()
+        const paraguas=document.getElementById("paraguas").value.trim()
+        let resultado;
+        if (clima === "soleado".toLowerCase() && (horario === "manana".toLowerCase() || horario === "tarde".toLowerCase()) ) {
+            resultado=("Te sugiero caminar")
+        } else if (clima === "soleado".toLowerCase() && horario === "noche".toLowerCase()){
+            resultado="por el horario te recomiendo transporte"
+        } else if (clima === "lluvioso".toLowerCase() && paraguas === "si"){
+            resultado="puedes irte caminando pero te recomiendo transporte"
+        } else if (clima === "lluvioso".toLowerCase() && paraguas === "no") {
+            resultado="Espera o ve en un bus"
+        } else if (clima === "nublado".toLowerCase() && (horario === "manana".toLowerCase() || horario === "tarde".toLowerCase()) && paraguas === "si"){
+            resultado="Te puedes ir caminando, posibles precipitaciones, paraguas a la mano."
+        } else if (clima === "nublado".toLowerCase() && horario === "noche".toLowerCase()){
+            resultado="Por el horario ve en transporte"
+        } else if (clima === "nublado".toLowerCase() && paraguas === "no".toLowerCase()){
+            resultado="te recomiendo transporte publico posibles precipitaciones"
+        } else {
+            resultado= "Opciones no validas"
+        } document.getElementById("resultado").textContent=resultado;
+    }
+</script>
+</body>
+</html>
