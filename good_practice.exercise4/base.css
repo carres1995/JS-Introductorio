@@ -1,0 +1,7 @@
+.bg-green { background-color: green; }
+.bg-blue { background-color: blue; }
+.bg-red { background-color: red; }
+
+body {
+    transition: background-color 0.4s ease;
+}

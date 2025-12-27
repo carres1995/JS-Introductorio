@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .error{
+            color:red
+        }
+        .success{
+            color: green;
+        }
+    </style>
+    <title>vanilla</title>
+</head>
+<body>
+    <form action="#" id="verify">
+        <label for="password">Password</label>
+        <input type="password" id="password" placeholder="password">
+        <button type="submit">Enter</button>
+        <p id="resultado"></p>
+    </form>
+    <script>
+        const form = document.getElementById("verify")
+        const password = document.getElementById("password")
+        const result = document.getElementById("resultado")
+
+        function lengthPassword(value){
+            return value.length >= 6
+        }
+
+        function error(result) {
+            result.textContent= "Password must be at least 6 characters"
+            result.classList.remove("error", "success")
+            result.classList.add("error")
+        }
+
+        function success(result) {
+            result.textContent= "success"
+            result.classList.remove("error", "success")
+            result.classList.add("success")
+        }
+
+        function getPassword(form){
+            return form.value;
+        }
+
+        function verify_digit(event){
+            event.preventDefault()
+
+            const psw =getPassword(password)
+
+            if (lengthPassword(psw)){
+                success(result)
+            } else {
+                error(result)
+            }
+        }
+
+        form.addEventListener("submit", verify_digit)
+    </script>
+</body>
+</html>
